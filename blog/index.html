@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Carlos Llueca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/blog.css">
+</head>
+<body>
+
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="wordmark">CL</a>
+            <nav class="main-nav">
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="../portfolio/index.html">Projects</a>
+                <a href="index.html" class="nav-active">Blog</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#experience">Experience</a>
+            <a href="../portfolio/index.html">Projects</a>
+            <a href="index.html">Blog</a>
+            <a href="../index.html#contact">Contact</a>
+        </div>
+    </header>
+
+    <main class="blog-main">
+
+        <!-- PAGE HEADER -->
+        <div class="page-hero">
+            <div class="page-hero-inner">
+                <p class="hero-eyebrow">Writing & Ideas</p>
+                <h1 class="page-title">The<br><em>Blog.</em></h1>
+                <p class="page-desc">Notes on AI engineering, machine learning, quantitative finance, and things I'm learning along the way. Infrequent but intentional.</p>
+            </div>
+            <div class="page-hero-rule"></div>
+        </div>
+
+        <!-- FILTER BAR -->
+        <div class="filter-bar" id="filterBar">
+            <div class="filter-inner">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="llm">LLMs & RAG</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="finance">Quant Finance</button>
+                <button class="filter-btn" data-filter="engineering">Engineering</button>
+                <button class="filter-btn" data-filter="career">Career & Growth</button>
+            </div>
+        </div>
+
+        <div class="blog-body">
+
+            <!-- FEATURED POST -->
+            <section class="blog-section">
+                <div class="section-label-inline">
+                    <span class="label-num">Featured</span>
+                </div>
+                <div class="featured-post" data-category="llm">
+                    <div class="featured-meta">
+                        <span class="post-category cat-llm">LLMs & RAG</span>
+                        <span class="post-date">Coming soon</span>
+                    </div>
+                    <h2 class="featured-title">Building production RAG systems that actually work</h2>
+                    <p class="featured-excerpt">Most RAG tutorials stop at the demo stage. This is about what happens after — chunking strategies, retrieval evaluation, reranking, and all the painful lessons learned shipping RAG to production at scale.</p>
+                    <div class="featured-footer">
+                        <span class="read-time">~ 12 min read</span>
+                        <span class="post-status draft">Draft in progress</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CATEGORY: LLMs & RAG -->
+            <section class="blog-section" id="cat-llm">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-llm-dot"></span>
+                    <span class="cat-heading">LLMs &amp; RAG</span>
+                    <span class="cat-count">4 posts</span>
+                </div>
+                <div class="post-grid">
+
+                    <article class="post-card" data-category="llm">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-llm">LLMs & RAG</span>
+                            <h3 class="post-title">Building production RAG systems that actually work</h3>
+                            <p class="post-excerpt">Chunking strategies, retrieval evaluation, reranking — lessons from shipping RAG to production.</p>
+                            <div class="post-footer">
+                                <span class="read-time">12 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card" data-category="llm">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-llm">LLMs & RAG</span>
+                            <h3 class="post-title">Multi-agent architectures: patterns and pitfalls</h3>
+                            <p class="post-excerpt">Orchestrator-worker, reflection loops, tool use — when to use which pattern and what breaks in production.</p>
+                            <div class="post-footer">
+                                <span class="read-time">9 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card" data-category="llm">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-llm">LLMs & RAG</span>
+                            <h3 class="post-title">Evaluating LLM outputs without losing your mind</h3>
+                            <p class="post-excerpt">A practical guide to building evaluation pipelines that actually catch regressions — not just vibe checks.</p>
+                            <div class="post-footer">
+                                <span class="read-time">7 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card" data-category="llm">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-llm">LLMs & RAG</span>
+                            <h3 class="post-title">Vector databases compared: Qdrant vs PGVector in real workloads</h3>
+                            <p class="post-excerpt">Benchmarks, operational complexity, and when you actually need a dedicated vector store vs Postgres.</p>
+                            <div class="post-footer">
+                                <span class="read-time">10 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- CATEGORY: Machine Learning -->
+            <section class="blog-section" id="cat-ml">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-ml-dot"></span>
+                    <span class="cat-heading">Machine Learning</span>
+                    <span class="cat-count">3 posts</span>
+                </div>
+                <div class="post-grid">
+
+                    <article class="post-card" data-category="ml">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-ml">Machine Learning</span>
+                            <h3 class="post-title">PET image attenuation correction with deep learning</h3>
+                            <p class="post-excerpt">What I learned building U-Net and ViT models for medical imaging from my Master's thesis — the research, the failures, the results.</p>
+                            <div class="post-footer">
+                                <span class="read-time">15 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card" data-category="ml">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-ml">Machine Learning</span>
+                            <h3 class="post-title">When to use transformers and when not to</h3>
+                            <p class="post-excerpt">Attention is powerful but not always the right tool. A grounded look at where simpler models still win.</p>
+                            <div class="post-footer">
+                                <span class="read-time">8 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card" data-category="ml">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-ml">Machine Learning</span>
+                            <h3 class="post-title">Anomaly detection in time-series: an engineer's guide</h3>
+                            <p class="post-excerpt">Statistical methods, autoencoders, isolation forests — picking the right approach for your data.</p>
+                            <div class="post-footer">
+                                <span class="read-time">11 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- CATEGORY: Quant Finance -->
+            <section class="blog-section" id="cat-finance">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-finance-dot"></span>
+                    <span class="cat-heading">Quant Finance</span>
+                    <span class="cat-count">2 posts</span>
+                </div>
+                <div class="post-grid">
+
+                    <article class="post-card" data-category="finance">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-finance">Quant Finance</span>
+                            <h3 class="post-title">AI in quantitative finance: where we are and where we're going</h3>
+                            <p class="post-excerpt">From signal generation to risk management — a clear-eyed look at what AI genuinely adds in capital markets.</p>
+                            <div class="post-footer">
+                                <span class="read-time">13 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card" data-category="finance">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-finance">Quant Finance</span>
+                            <h3 class="post-title">Building a personal money management system with data</h3>
+                            <p class="post-excerpt">Tracking, categorizing, and visualizing personal finances with Python — beyond spreadsheets.</p>
+                            <div class="post-footer">
+                                <span class="read-time">8 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- CATEGORY: Engineering -->
+            <section class="blog-section" id="cat-engineering">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-eng-dot"></span>
+                    <span class="cat-heading">Engineering</span>
+                    <span class="cat-count">3 posts</span>
+                </div>
+                <div class="post-grid">
+
+                    <article class="post-card" data-category="engineering">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-eng">Engineering</span>
+                            <h3 class="post-title">Designing APIs that survive the real world</h3>
+                            <p class="post-excerpt">Versioning, error handling, rate limiting, and documentation — what actually matters when your API has real users.</p>
+                            <div class="post-footer">
+                                <span class="read-time">9 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card" data-category="engineering">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-eng">Engineering</span>
+                            <h3 class="post-title">Docker for ML engineers: beyond the basics</h3>
+                            <p class="post-excerpt">Multi-stage builds, GPU passthrough, volume management — practical patterns for ML workloads in containers.</p>
+                            <div class="post-footer">
+                                <span class="read-time">10 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card" data-category="engineering">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-eng">Engineering</span>
+                            <h3 class="post-title">CI/CD for data science projects</h3>
+                            <p class="post-excerpt">Model versioning, data validation, automated testing — bringing software engineering discipline to ML pipelines.</p>
+                            <div class="post-footer">
+                                <span class="read-time">7 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- CATEGORY: Career & Growth -->
+            <section class="blog-section" id="cat-career">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-career-dot"></span>
+                    <span class="cat-heading">Career &amp; Growth</span>
+                    <span class="cat-count">2 posts</span>
+                </div>
+                <div class="post-grid">
+
+                    <article class="post-card" data-category="career">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-career">Career & Growth</span>
+                            <h3 class="post-title">From IT auditor to AI engineer — how I made the switch</h3>
+                            <p class="post-excerpt">The honest story of pivoting careers, self-teaching, and what actually made the difference.</p>
+                            <div class="post-footer">
+                                <span class="read-time">6 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card" data-category="career">
+                        <div class="post-card-inner">
+                            <span class="post-category cat-career">Career & Growth</span>
+                            <h3 class="post-title">Learning in public: why I started writing</h3>
+                            <p class="post-excerpt">On building in the open, sharing half-formed ideas, and why the fear of being wrong shouldn't stop you.</p>
+                            <div class="post-footer">
+                                <span class="read-time">4 min</span>
+                                <span class="post-status draft">Soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="wordmark">CL</span>
+            <span>© 2025-2026 Carlos Llueca. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/blog.js"></script>
+</body>
+</html>

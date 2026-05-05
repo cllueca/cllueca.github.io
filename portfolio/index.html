@@ -3,174 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carlos Llueca - Backend Developer & ML Engineer</title>
-    <link rel="stylesheet" href="css/main-portfolio.css">
-    <script src="js/main-portfolio.js"></script>
+    <title>Projects — Carlos Llueca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/portfolio.css">
 </head>
 <body>
-    <!-- Navigation Header -->
-    <nav class="nav-header">
-        <div class="nav-container">
-            <a href="#" class="logo">Carlos Llueca</a>
-            <div class="nav-links" id="navLinks">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <button class="mobile-nav-toggle" id="mobileNavToggle">☰</button>
-        </div>
-    </nav>
 
-    <div class="container">
-        <header>
-            <h1>Carlos Llueca</h1>
-            <p class="subtitle">Backend Developer & Machine Learning Engineer</p>
-        </header>
-        
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                I'm a backend developer and machine learning engineer with X years of experience building scalable systems and implementing ML solutions. 
-                I specialize in [your specific skills] and have worked on projects involving [types of projects/domains].
-            </p>
-        </section>
-        
-        <section id="skills">
-            <h2>Skills & Technologies</h2>
-            <div class="skills">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">TensorFlow</span>
-                <span class="skill-tag">PyTorch</span>
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">SQL/NoSQL</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Kubernetes</span>
-                <span class="skill-tag">AWS/GCP</span>
-                <span class="skill-tag">CI/CD</span>
-                <span class="skill-tag">Data Processing</span>
-                <span class="skill-tag">API Design</span>
-                <!-- Add/adjust skills as needed -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="../index.html" class="wordmark">CL</a>
+            <nav class="main-nav">
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#experience">Experience</a>
+                <a href="index.html" class="nav-active">Projects</a>
+                <a href="../blog/index.html">Blog</a>
+                <a href="../index.html#contact">Contact</a>
+            </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#experience">Experience</a>
+            <a href="index.html">Projects</a>
+            <a href="../blog/index.html">Blog</a>
+            <a href="../index.html#contact">Contact</a>
+        </div>
+    </header>
+
+    <main class="portfolio-main">
+
+        <!-- PAGE HERO -->
+        <div class="page-hero">
+            <div class="page-hero-inner">
+                <p class="hero-eyebrow">Selected Work</p>
+                <h1 class="page-title">Projects &amp;<br><em>Experiments.</em></h1>
+                <p class="page-desc">A collection of things I've built — from production AI systems and ML research to data engineering and personal experiments. Some are polished, some are playgrounds.</p>
             </div>
-        </section>
-        
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="projects">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Recommendation Engine</h3>
-                        <p>A scalable recommendation system that processes user behavior data to provide personalized content suggestions.</p>
-                        
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>TensorFlow</span>
-                            <span>FastAPI</span>
-                            <span>Redis</span>
+            <div class="page-hero-rule"></div>
+        </div>
+
+        <!-- FILTER BAR -->
+        <div class="filter-bar" id="filterBar">
+            <div class="filter-inner">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="llm">LLMs & RAG</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="data">Data Engineering</button>
+                <button class="filter-btn" data-filter="finance">Quant Finance</button>
+                <button class="filter-btn" data-filter="research">Research</button>
+            </div>
+        </div>
+
+        <div class="portfolio-body">
+
+            <!-- FEATURED PROJECT -->
+            <section class="portfolio-section">
+                <div class="section-label-inline">
+                    <span class="label-num">Featured</span>
+                </div>
+
+                <div class="featured-project" data-category="llm">
+                    <div class="fp-content">
+                        <div class="fp-meta">
+                            <span class="proj-category cat-llm">LLMs & RAG</span>
+                            <span class="proj-year">2024 — Present</span>
+                            <span class="proj-status status-prod">Production</span>
                         </div>
-                        
-                        <div class="metrics">
-                            <p><strong>Impact:</strong> Increased user engagement by 37% and content consumption by 42%</p>
+                        <h2 class="fp-title">Enterprise RAG System</h2>
+                        <p class="fp-desc">Modular retrieval-augmented generation pipeline with multi-agent orchestration, built for industrial document intelligence at Técnicas Reunidas. Designed to handle heterogeneous document types, hybrid search, and dynamic agent routing.</p>
+                        <div class="fp-tech">
+                            <span>Python</span><span>LangGraph</span><span>Qdrant</span>
+                            <span>FastAPI</span><span>Azure</span><span>Docker</span>
                         </div>
-                        
-                        <div class="code-snippet">
-                            <code>
-                                # Example code snippet<br>
-                                def train_model(features, labels):<br>
-                                &nbsp;&nbsp;model = Sequential([<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;Dense(128, activation='relu'),<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;Dropout(0.2),<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;Dense(64, activation='relu'),<br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;Dense(1, activation='sigmoid')<br>
-                                &nbsp;&nbsp;])<br>
-                                &nbsp;&nbsp;model.compile(optimizer='adam', loss='binary_crossentropy')<br>
-                                &nbsp;&nbsp;return model.fit(features, labels)
-                            </code>
+                        <div class="fp-links">
+                            <span class="link-unavailable">Private — internal project</span>
+                        </div>
+                    </div>
+                    <div class="fp-visual">
+                        <div class="fp-diagram">
+                            <div class="diagram-node node-top">Query</div>
+                            <div class="diagram-arrow">↓</div>
+                            <div class="diagram-row">
+                                <div class="diagram-node node-mid">Retriever</div>
+                                <div class="diagram-node node-mid">Reranker</div>
+                                <div class="diagram-node node-mid">Agent</div>
+                            </div>
+                            <div class="diagram-arrow">↓</div>
+                            <div class="diagram-node node-bottom">Response</div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Real-time Analytics Pipeline</h3>
-                        <p>Designed and implemented a streaming data pipeline for processing millions of events per day.</p>
-                        
-                        <div class="project-tech">
-                            <span>Apache Kafka</span>
-                            <span>Python</span>
-                            <span>AWS Lambda</span>
-                            <span>DynamoDB</span>
-                        </div>
-                        
-                        <div class="metrics">
-                            <p><strong>Performance:</strong> Handles 5000+ events/second with 99.9% uptime</p>
-                        </div>
-                    </div>
+            </section>
+
+            <!-- CATEGORY: LLMs & RAG -->
+            <section class="portfolio-section" id="cat-llm">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-llm-dot"></span>
+                    <span class="cat-heading">LLMs &amp; RAG</span>
+                    <span class="cat-count">3 projects</span>
                 </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Anomaly Detection System</h3>
-                        <p>Built an unsupervised learning system to detect abnormal patterns in time-series data for a financial application.</p>
-                        
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Scikit-learn</span>
-                            <span>Docker</span>
-                            <span>Flask</span>
+                <div class="project-grid">
+
+                    <article class="project-card" data-category="llm">
+                        <div class="project-card-inner">
+                            <div class="pc-header">
+                                <span class="proj-category cat-llm">LLMs & RAG</span>
+                                <span class="proj-year">2024</span>
+                            </div>
+                            <h3 class="pc-title">Enterprise RAG System</h3>
+                            <p class="pc-desc">Modular RAG with multi-agent orchestration for industrial document intelligence.</p>
+                            <div class="pc-tech">
+                                <span>Python</span><span>LangGraph</span><span>Qdrant</span><span>FastAPI</span>
+                            </div>
+                            <div class="pc-footer">
+                                <span class="proj-status status-prod">Production</span>
+                                <span class="link-unavailable small">Private</span>
+                            </div>
                         </div>
-                        
-                        <div class="metrics">
-                            <p><strong>Accuracy:</strong> 94.7% detection rate with 2.3% false positives</p>
+                    </article>
+
+                    <article class="project-card" data-category="llm">
+                        <div class="project-card-inner">
+                            <div class="pc-header">
+                                <span class="proj-category cat-llm">LLMs & RAG</span>
+                                <span class="proj-year">2025</span>
+                            </div>
+                            <h3 class="pc-title">Local LLM Evaluation Framework</h3>
+                            <p class="pc-desc">Lightweight pipeline for evaluating open-source LLMs on custom domain-specific benchmarks.</p>
+                            <div class="pc-tech">
+                                <span>Python</span><span>Ollama</span><span>Ragas</span><span>Pandas</span>
+                            </div>
+                            <div class="pc-footer">
+                                <span class="proj-status status-wip">In progress</span>
+                                <a href="#" class="proj-link">GitHub →</a>
+                            </div>
                         </div>
-                    </div>
+                    </article>
+
+                    <article class="project-card" data-category="llm">
+                        <div class="project-card-inner">
+                            <div class="pc-header">
+                                <span class="proj-category cat-llm">LLMs & RAG</span>
+                                <span class="proj-year">2025</span>
+                            </div>
+                            <h3 class="pc-title">Multi-Agent Document Processor</h3>
+                            <p class="pc-desc">Agent graph for automated extraction, classification, and summarization of complex technical documents.</p>
+                            <div class="pc-tech">
+                                <span>Python</span><span>LangGraph</span><span>PGVector</span>
+                            </div>
+                            <div class="pc-footer">
+                                <span class="proj-status status-concept">Concept</span>
+                                <span class="link-unavailable small">Coming soon</span>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
-            </div>
-        </section>
-        
-        <section id="experience">
-            <h2>Work Experience</h2>
-            
-            <div class="experience-item">
-                <h3>Senior Backend Developer - Company Name</h3>
-                <p>January 2022 - Present</p>
-                <ul>
-                    <li>Developed and maintained microservices architecture handling X transactions per day</li>
-                    <li>Led the implementation of ML pipelines for data processing and model training</li>
-                    <li>Improved system performance by X% through optimization and refactoring</li>
-                </ul>
-            </div>
-            
-            <div class="experience-item">
-                <h3>ML Engineer - Previous Company</h3>
-                <p>June 2019 - December 2021</p>
-                <ul>
-                    <li>Implemented computer vision algorithms for [specific application]</li>
-                    <li>Collaborated with data scientists to deploy models to production</li>
-                    <li>Architected data processing pipeline that reduced training time by X%</li>
-                </ul>
-            </div>
-        </section>
-        
-        <section id="contact" class="contact">
-            <h2>Get In Touch</h2>
-            <p>Interested in working together or have questions about my projects?</p>
-            <div>
-                <a href="mailto:your.email@example.com">Email</a>
-                <a href="https://github.com/yourusername">GitHub</a>
-                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
-            </div>
-        </section>
-    </div>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Your Name. All rights reserved.</p>
+            </section>
+
+            <!-- CATEGORY: Machine Learning -->
+            <section class="portfolio-section" id="cat-ml">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-ml-dot"></span>
+                    <span class="cat-heading">Machine Learning</span>
+                    <span class="cat-count">3 projects</span>
+                </div>
+                <div class="project-grid">
+
+                    <article class="project-card" data-category="ml">
+                        <div class="project-card-inner">
+                            <div class="pc-header">
+                                <span class="proj-category cat-ml">Machine Learning</span>
+                                <span class="proj-year">2025</span>
+                            </div>
+                            <h3 class="pc-title">PET Image Attenuation Correction</h3>
+                            <p class="pc-desc">Deep learning pipeline using U-Net and ViT to improve corrected PET image quality. Master's thesis project with PROMISE LAIMBIO.</p>
+                            <div class="pc-tech">
+                                <span>PyTorch</span><span>U-Net</span><span>ViT</span><span>MONAI</span>
+                            </div>
+                            <div class="pc-footer">
+                                <span class="proj-status status-research">Research</span>
+                                <span class="link-unavailable small">Private</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="ml">
+                        <div class="project-card-inner">
+                            <div class="pc-header">
+                                <span class="proj-category cat-ml">Machine Learning</span>
+                                <span class="proj-year">2024</span>
+                            </div>
+                            <h3 class="pc-title">Anomaly Detection — Financial Time-Series</h3>
+                            <p class="pc-desc">Unsupervised anomaly detection using isolation forests and autoencoders on financial signal data. 94.7% detection rate, 2.3% false positive rate.</p>
+                            <div class="pc-tech">
+                                <span>Python</span><span>Scikit-learn</span><span>PyTorch</span><span>Docker</span>
+                            </div>
+                            <div class="pc-footer">
+                                <span class="proj-status status-complete">Complete</span>
+                                <a href="#" class="proj-link">GitHub →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="ml">
+                        <div class="project-card-inner">
+                            <div class="pc-header">
+                                <span class="proj-category cat-ml">Machine Learning</span>
+                                <span class="proj-year">2023</span>
+                            </div>
+                            <h3 class="pc-title">Recommendation Engine</h3>
+                            <p class="pc-desc">Content-based and collaborative filtering recommendation system. Increased simulated user engagement by 37% in offline evaluation.</p>
+                            <div class="pc-tech">
+                                <span>Python</span><span>TensorFlow</span><span>FastAPI</span><span>Redis</span>
+                            </div>
+                            <div class="pc-footer">
+                                <span class="proj-status status-complete">Complete</span>
+                                <a href="#" class="proj-link">GitHub →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- CATEGORY: Data Engineering -->
+            <section class="portfolio-section" id="cat-data">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-data-dot"></span>
+                    <span class="cat-heading">Data Engineering</span>
+                    <span class="cat-count">2 projects</span>
+                </div>
+                <div class="project-grid">
+
+                    <article class="project-card" data-category="data">
+                        <div class="project-card-inner">
+                            <div class="pc-header">
+                                <span class="proj-category cat-data">Data Engineering</span>
+                                <span class="proj-year">2024</span>
+                            </div>
+                            <h3 class="pc-title">Real-time Analytics Pipeline</h3>
+                            <p class="pc-desc">Streaming data pipeline processing millions of events per day. 5000+ events/second with 99.9% uptime on AWS infrastructure.</p>
+                            <div class="pc-tech">
+                                <span>Apache Kafka</span><span>Python</span><span>AWS Lambda</span><span>DynamoDB</span>
+                            </div>
+                            <div class="pc-footer">
+                                <span class="proj-status status-complete">Complete</span>
+                                <span class="link-unavailable small">Private</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="data">
+                        <div class="project-card-inner">
+                            <div class="pc-header">
+                                <span class="proj-category cat-data">Data Engineering</span>
+                                <span class="proj-year">2023</span>
+                            </div>
+                            <h3 class="pc-title">WhatsApp Chat Analyser</h3>
+                            <p class="pc-desc">Python pipeline for importing, cleaning, and visualising WhatsApp conversation data. Published analysis on Medium.</p>
+                            <div class="pc-tech">
+                                <span>Python</span><span>Pandas</span><span>Matplotlib</span><span>Jupyter</span>
+                            </div>
+                            <div class="pc-footer">
+                                <span class="proj-status status-complete">Complete</span>
+                                <a href="https://github.com/jbernalg/Projects_Data_Science/" target="_blank" class="proj-link">GitHub →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- CATEGORY: Quant Finance -->
+            <section class="portfolio-section" id="cat-finance">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-finance-dot"></span>
+                    <span class="cat-heading">Quant Finance</span>
+                    <span class="cat-count">2 projects</span>
+                </div>
+                <div class="project-grid">
+
+                    <article class="project-card" data-category="finance">
+                        <div class="project-card-inner">
+                            <div class="pc-header">
+                                <span class="proj-category cat-finance">Quant Finance</span>
+                                <span class="proj-year">2025</span>
+                            </div>
+                            <h3 class="pc-title">Personal Finance Dashboard</h3>
+                            <p class="pc-desc">Data-driven personal money management system — automated categorisation, trend analysis, and custom visualisations beyond spreadsheets.</p>
+                            <div class="pc-tech">
+                                <span>Python</span><span>Pandas</span><span>Plotly</span><span>SQLite</span>
+                            </div>
+                            <div class="pc-footer">
+                                <span class="proj-status status-wip">In progress</span>
+                                <a href="#" class="proj-link">GitHub →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="finance">
+                        <div class="project-card-inner">
+                            <div class="pc-header">
+                                <span class="proj-category cat-finance">Quant Finance</span>
+                                <span class="proj-year">2025</span>
+                            </div>
+                            <h3 class="pc-title">Market Signal Explorer</h3>
+                            <p class="pc-desc">Exploratory tool for backtesting simple momentum and mean-reversion signals on equity data. Learning project in quantitative methods.</p>
+                            <div class="pc-tech">
+                                <span>Python</span><span>yfinance</span><span>Backtrader</span><span>NumPy</span>
+                            </div>
+                            <div class="pc-footer">
+                                <span class="proj-status status-concept">Concept</span>
+                                <span class="link-unavailable small">Coming soon</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- CATEGORY: Research -->
+            <section class="portfolio-section" id="cat-research">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-research-dot"></span>
+                    <span class="cat-heading">Research</span>
+                    <span class="cat-count">1 project</span>
+                </div>
+                <div class="project-grid">
+
+                    <article class="project-card project-card--wide" data-category="research">
+                        <div class="project-card-inner">
+                            <div class="pc-header">
+                                <span class="proj-category cat-research">Research</span>
+                                <span class="proj-year">2025</span>
+                            </div>
+                            <h3 class="pc-title">PET Attenuation Correction via Deep Learning — Master's Thesis</h3>
+                            <p class="pc-desc">Experimental research project at PROMISE LAIMBIO (Rey Juan Carlos University) focused on enhancing corrected PET image quality through custom-built computer vision models. Tested U-Net and Vision Transformer (ViT) architectures trained on paired attenuation maps.</p>
+                            <div class="pc-tech">
+                                <span>PyTorch</span><span>MONAI</span><span>U-Net</span><span>ViT</span><span>Medical Imaging</span>
+                            </div>
+                            <div class="pc-footer">
+                                <span class="proj-status status-research">Research</span>
+                                <span class="link-unavailable small">Pending publication</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <span class="wordmark">CL</span>
+            <span>© 2025-2026 Carlos Llueca. All rights reserved.</span>
         </div>
     </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/portfolio.js"></script>
 </body>
 </html>

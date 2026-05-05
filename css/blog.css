@@ -1,0 +1,306 @@
+/* =============================================
+   BLOG PAGE — blog.css
+   ============================================= */
+
+/* Category color palette */
+:root {
+    --cat-llm:     #d4a843;
+    --cat-ml:      #6eb5c0;
+    --cat-finance: #a8c47a;
+    --cat-eng:     #b48ead;
+    --cat-career:  #e07a5f;
+}
+
+.blog-main {
+    padding-top: var(--nav-h);
+    min-height: 100vh;
+}
+
+/* PAGE HERO */
+.page-hero {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 72px 32px 48px;
+}
+
+.page-hero-inner {
+    max-width: 640px;
+}
+
+.page-title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -.035em;
+    color: var(--text);
+    margin: 16px 0 24px;
+}
+
+.page-title em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.page-desc {
+    font-size: 1rem;
+    color: var(--text-dim);
+    line-height: 1.85;
+    max-width: 520px;
+}
+
+.page-hero-rule {
+    height: 1px;
+    background: var(--border);
+    margin-top: 48px;
+}
+
+/* FILTER BAR */
+.filter-bar {
+    position: sticky;
+    top: var(--nav-h);
+    z-index: 50;
+    background: rgba(17,16,16,.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+
+.filter-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.filter-inner::-webkit-scrollbar { display: none; }
+
+.filter-btn {
+    background: none;
+    border: none;
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    padding: 16px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+    margin-bottom: -1px;
+}
+
+.filter-btn:hover { color: var(--text-dim); }
+
+.filter-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* BLOG BODY */
+.blog-body {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 32px 100px;
+}
+
+/* BLOG SECTION */
+.blog-section {
+    padding: 56px 0 0;
+    border-top: 1px solid var(--border);
+    margin-top: 56px;
+}
+
+.blog-section:first-child {
+    margin-top: 40px;
+}
+
+.section-label-inline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.cat-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.cat-llm-dot     { background: var(--cat-llm); }
+.cat-ml-dot      { background: var(--cat-ml); }
+.cat-finance-dot { background: var(--cat-finance); }
+.cat-eng-dot     { background: var(--cat-eng); }
+.cat-career-dot  { background: var(--cat-career); }
+
+.cat-heading {
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+}
+
+.cat-count {
+    font-family: var(--font-mono);
+    font-size: .65rem;
+    color: var(--text-mute);
+    margin-left: auto;
+}
+
+/* FEATURED POST */
+.featured-post {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 40px;
+    max-width: 760px;
+    transition: border-color .25s;
+    cursor: pointer;
+}
+
+.featured-post:hover { border-color: var(--accent); }
+
+.featured-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.featured-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -.02em;
+    color: var(--text);
+    margin-bottom: 16px;
+}
+
+.featured-excerpt {
+    font-size: .97rem;
+    color: var(--text-dim);
+    line-height: 1.85;
+    max-width: 580px;
+    margin-bottom: 24px;
+}
+
+.featured-footer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* POST GRID */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+}
+
+.post-card {
+    background: var(--bg);
+    transition: background .2s;
+    cursor: pointer;
+}
+
+.post-card:hover { background: var(--surface); }
+
+.post-card.hidden { display: none; }
+
+.post-card-inner {
+    padding: 28px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.4;
+    margin: 10px 0 12px;
+    flex: 1;
+}
+
+.post-excerpt {
+    font-size: .83rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+/* CATEGORY BADGES */
+.post-category {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+}
+
+.cat-llm     { background: rgba(212,168,67,.12); color: var(--cat-llm); }
+.cat-ml      { background: rgba(110,181,192,.12); color: var(--cat-ml); }
+.cat-finance { background: rgba(168,196,122,.12); color: var(--cat-finance); }
+.cat-eng     { background: rgba(180,142,173,.12); color: var(--cat-eng); }
+.cat-career  { background: rgba(224,122,95,.12);  color: var(--cat-career); }
+
+/* STATUS BADGES */
+.read-time {
+    font-family: var(--font-mono);
+    font-size: .65rem;
+    color: var(--text-mute);
+    letter-spacing: .06em;
+}
+
+.post-date {
+    font-family: var(--font-mono);
+    font-size: .65rem;
+    color: var(--text-mute);
+    letter-spacing: .06em;
+}
+
+.post-status {
+    font-family: var(--font-mono);
+    font-size: .6rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+}
+
+.post-status.draft {
+    background: rgba(82,77,71,.4);
+    color: var(--text-mute);
+}
+
+.post-status.published {
+    background: rgba(168,196,122,.15);
+    color: var(--cat-finance);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .page-hero { padding: 48px 20px 36px; }
+    .blog-body { padding: 0 20px 80px; }
+    .filter-inner { padding: 0 20px; }
+    .featured-post { padding: 28px 20px; }
+    .post-grid { grid-template-columns: 1fr; }
+}
