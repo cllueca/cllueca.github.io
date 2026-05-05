@@ -1,0 +1,249 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --bg-color: #0f1419;
+    --text-color: #ecf0f1;
+    --card-bg: #1a2229;
+    --border-color: #2c3e50;
+    --header-bg: rgba(15, 20, 25, 0.95);
+}
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    padding-top: 70px; /* Add padding to account for fixed header */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation Header */
+.nav-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--header-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 70px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 8px 0;
+    font-size: 0.95em;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+header {
+    padding: 80px 0 30px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    margin-top: 50px;
+}
+
+h3 {
+    color: var(--primary-color);
+}
+
+.subtitle {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+section {
+    margin: 50px 0;
+    padding-top: 20px; /* Add padding for smooth scrolling with fixed header */
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-content {
+    padding: 20px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.project-tech span {
+    background-color: rgba(52, 152, 219, 0.2);
+    color: var(--primary-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+}
+
+.metrics {
+    background-color: rgba(52, 152, 219, 0.1);
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.metrics strong {
+    color: var(--primary-color);
+}
+
+.code-snippet {
+    background-color: #1e272e;
+    border-radius: 6px;
+    padding: 15px;
+    overflow-x: auto;
+    margin: 15px 0;
+}
+
+.code-snippet code {
+    font-family: 'Courier New', monospace;
+    color: #ecf0f1;
+}
+
+.contact {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.contact a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--card-bg);
+        padding: 20px;
+        gap: 15px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .mobile-nav-toggle {
+        display: block;
+    }
+    
+    .projects {
+        grid-template-columns: 1fr;
+    }
+}

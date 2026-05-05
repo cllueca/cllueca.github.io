@@ -1,1 +1,176 @@
-Working on it...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Llueca - Backend Developer & ML Engineer</title>
+    <link rel="stylesheet" href="css/main-portfolio.css">
+    <script src="js/main-portfolio.js"></script>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="nav-header">
+        <div class="nav-container">
+            <a href="#" class="logo">Carlos Llueca</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="mobile-nav-toggle" id="mobileNavToggle">☰</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Carlos Llueca</h1>
+            <p class="subtitle">Backend Developer & Machine Learning Engineer</p>
+        </header>
+        
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I'm a backend developer and machine learning engineer with X years of experience building scalable systems and implementing ML solutions. 
+                I specialize in [your specific skills] and have worked on projects involving [types of projects/domains].
+            </p>
+        </section>
+        
+        <section id="skills">
+            <h2>Skills & Technologies</h2>
+            <div class="skills">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">SQL/NoSQL</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Kubernetes</span>
+                <span class="skill-tag">AWS/GCP</span>
+                <span class="skill-tag">CI/CD</span>
+                <span class="skill-tag">Data Processing</span>
+                <span class="skill-tag">API Design</span>
+                <!-- Add/adjust skills as needed -->
+            </div>
+        </section>
+        
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Recommendation Engine</h3>
+                        <p>A scalable recommendation system that processes user behavior data to provide personalized content suggestions.</p>
+                        
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>FastAPI</span>
+                            <span>Redis</span>
+                        </div>
+                        
+                        <div class="metrics">
+                            <p><strong>Impact:</strong> Increased user engagement by 37% and content consumption by 42%</p>
+                        </div>
+                        
+                        <div class="code-snippet">
+                            <code>
+                                # Example code snippet<br>
+                                def train_model(features, labels):<br>
+                                &nbsp;&nbsp;model = Sequential([<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Dense(128, activation='relu'),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Dropout(0.2),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Dense(64, activation='relu'),<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Dense(1, activation='sigmoid')<br>
+                                &nbsp;&nbsp;])<br>
+                                &nbsp;&nbsp;model.compile(optimizer='adam', loss='binary_crossentropy')<br>
+                                &nbsp;&nbsp;return model.fit(features, labels)
+                            </code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Real-time Analytics Pipeline</h3>
+                        <p>Designed and implemented a streaming data pipeline for processing millions of events per day.</p>
+                        
+                        <div class="project-tech">
+                            <span>Apache Kafka</span>
+                            <span>Python</span>
+                            <span>AWS Lambda</span>
+                            <span>DynamoDB</span>
+                        </div>
+                        
+                        <div class="metrics">
+                            <p><strong>Performance:</strong> Handles 5000+ events/second with 99.9% uptime</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Anomaly Detection System</h3>
+                        <p>Built an unsupervised learning system to detect abnormal patterns in time-series data for a financial application.</p>
+                        
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Scikit-learn</span>
+                            <span>Docker</span>
+                            <span>Flask</span>
+                        </div>
+                        
+                        <div class="metrics">
+                            <p><strong>Accuracy:</strong> 94.7% detection rate with 2.3% false positives</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <h2>Work Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Senior Backend Developer - Company Name</h3>
+                <p>January 2022 - Present</p>
+                <ul>
+                    <li>Developed and maintained microservices architecture handling X transactions per day</li>
+                    <li>Led the implementation of ML pipelines for data processing and model training</li>
+                    <li>Improved system performance by X% through optimization and refactoring</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <h3>ML Engineer - Previous Company</h3>
+                <p>June 2019 - December 2021</p>
+                <ul>
+                    <li>Implemented computer vision algorithms for [specific application]</li>
+                    <li>Collaborated with data scientists to deploy models to production</li>
+                    <li>Architected data processing pipeline that reduced training time by X%</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="contact" class="contact">
+            <h2>Get In Touch</h2>
+            <p>Interested in working together or have questions about my projects?</p>
+            <div>
+                <a href="mailto:your.email@example.com">Email</a>
+                <a href="https://github.com/yourusername">GitHub</a>
+                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
