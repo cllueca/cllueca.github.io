@@ -145,8 +145,8 @@ img { display: block; max-width: 100%; }
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 80px;
+    grid-template-columns: 1fr 520px;
+    gap: 40px;
     align-items: center;
 }
 
@@ -201,14 +201,20 @@ img { display: block; max-width: 100%; }
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 28px;
-    min-height: 220px;
+
+    min-height: 420px;
+
+    border-left: 1px solid var(--border);
+    padding-left: 48px;
+
+    position: relative;
 }
 
 .hero-carousel {
     position: relative;
     width: 100%;
-    height: 120px;
+    height: 220px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -216,42 +222,63 @@ img { display: block; max-width: 100%; }
 
 .hero-carousel span {
     position: absolute;
+
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-size: clamp(3.5rem, 7vw, 5.8rem);
     font-weight: 700;
-    letter-spacing: -.02em;
+    line-height: 1;
+
+    letter-spacing: -.04em;
+
     color: var(--accent);
+
     opacity: 0;
-    transform: translateY(16px);
-    transition: opacity .5s ease, transform .5s ease;
+    transform: translateY(30px) scale(.96);
+
+    transition:
+        opacity .9s ease,
+        transform .9s cubic-bezier(.22,1,.36,1);
+
     white-space: nowrap;
     pointer-events: none;
+
+    text-shadow: 0 0 40px rgba(212,168,67,.08);
 }
 
 .hero-carousel span.carousel-active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 .carousel-dots {
     display: flex;
-    gap: 8px;
+    gap: 12px;
+    margin-top: 12px;
 }
 
 .carousel-dot {
-    width: 5px; height: 5px;
-    border-radius: 50%;
-    background: var(--text-mute);
+    width: 6px;
+    height: 6px;
+
+    border-radius: 999px;
     border: none;
+
+    background: var(--text-mute);
+
     cursor: pointer;
     padding: 0;
-    transition: background .25s, transform .25s;
+
+    transition:
+        transform .35s ease,
+        background .35s ease,
+        width .35s ease;
 }
 
 .carousel-dot.active {
+    width: 28px;
     background: var(--accent);
-    transform: scale(1.4);
+    transform: none;
 }
 
 .hero-rule {
@@ -839,15 +866,22 @@ img { display: block; max-width: 100%; }
 @media (max-width: 900px) {
     .hero-grid {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 72px;
     }
 
     .hero-carousel-wrap {
-        min-height: 100px;
+        min-height: 180px;
+        border-left: none;
+        padding-left: 0;
     }
 
     .hero-carousel {
-        height: 80px;
+        height: 120px;
+    }
+
+    .hero-carousel span {
+        font-size: clamp(2.6rem, 12vw, 4rem);
+        text-align: center;
     }
 
     .two-col {

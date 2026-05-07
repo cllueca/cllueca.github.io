@@ -72,7 +72,7 @@ document.querySelectorAll(
 
     function resetTimer() {
         clearInterval(timer);
-        timer = setInterval(() => goTo(current + 1), 2200);
+        timer = setInterval(() => goTo(current + 1), 3000);
     }
 
     goTo(0);
