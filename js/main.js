@@ -40,3 +40,41 @@ document.querySelectorAll(
     el.style.transitionDelay = `${i * 60}ms`;
     observer.observe(el);
 });
+
+// ---- HERO KEYWORD CAROUSEL ----
+(function () {
+    const carousel = document.getElementById('heroCarousel');
+    const dotsWrap = document.getElementById('carouselDots');
+    if (!carousel || !dotsWrap) return;
+
+    const slides = Array.from(carousel.querySelectorAll('span'));
+    let current = 0;
+    let timer;
+
+    // Build dots
+    slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Slide ${i + 1}`);
+        dot.addEventListener('click', () => { goTo(i); resetTimer(); });
+        dotsWrap.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsWrap.querySelectorAll('.carousel-dot'));
+
+    function goTo(index) {
+        slides[current].classList.remove('carousel-active');
+        dots[current].classList.remove('active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('carousel-active');
+        dots[current].classList.add('active');
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(() => goTo(current + 1), 2200);
+    }
+
+    goTo(0);
+    resetTimer();
+})();
