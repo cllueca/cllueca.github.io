@@ -113,6 +113,27 @@ img { display: block; max-width: 100%; }
     transition: all .25s;
 }
 
+/* Language toggle */
+.lang-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    letter-spacing: .12em;
+    color: var(--text-mute);
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: color .2s, border-color .2s;
+    flex-shrink: 0;
+}
+
+.lang-toggle:hover,
+.lang-toggle.active {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
 .mobile-menu {
     display: none;
     flex-direction: column;
@@ -476,6 +497,26 @@ img { display: block; max-width: 100%; }
     color: var(--text-mute);
     font-size: .7rem;
     top: 5px;
+}
+
+/* Job skill pills */
+.tl-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+}
+
+.tl-skills span {
+    font-family: var(--font-mono);
+    font-size: .63rem;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-lo);
+    border: 1px solid rgba(212,168,67,.2);
+    padding: 3px 9px;
+    border-radius: 2px;
 }
 
 /* Education */

@@ -6,12 +6,11 @@ navToggle.addEventListener('click', () => {
     mobileMenu.classList.toggle('open');
 });
 
-// Close mobile menu on link click
 mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => mobileMenu.classList.remove('open'));
 });
 
-// Header shrink on scroll
+// Header border on scroll
 const header = document.getElementById('site-header');
 window.addEventListener('scroll', () => {
     header.style.borderBottomColor = window.scrollY > 40
@@ -32,14 +31,46 @@ const observer = new IntersectionObserver((entries) => {
 
 reveals.forEach(el => observer.observe(el));
 
-// Add reveal class dynamically to key elements
 document.querySelectorAll(
-    '.teaser-card, .blog-item, .timeline-block, .edu-item, .contact-item'
+    '.strip-card, .blog-item, .timeline-block, .edu-item, .contact-item'
 ).forEach((el, i) => {
     el.classList.add('reveal');
     el.style.transitionDelay = `${i * 60}ms`;
     observer.observe(el);
 });
+
+// ---- LANGUAGE SWITCHER ----
+(function () {
+    const btn = document.getElementById('langToggle');
+    if (!btn) return;
+
+    let lang = localStorage.getItem('lang') || 'en';
+
+    function applyLang(l) {
+        lang = l;
+        document.documentElement.lang = l;
+        // Button shows the *other* language as the option to switch to
+        btn.textContent = l === 'en' ? 'ES' : 'EN';
+        btn.classList.toggle('active', l === 'es');
+        localStorage.setItem('lang', l);
+
+        document.querySelectorAll('[data-en]').forEach(el => {
+            const val = el.getAttribute('data-' + l);
+            if (!val) return;
+            // innerHTML for elements with embedded <em> tags, textContent otherwise
+            if (val.includes('<')) {
+                el.innerHTML = val;
+            } else {
+                el.textContent = val;
+            }
+        });
+    }
+
+    btn.addEventListener('click', () => applyLang(lang === 'en' ? 'es' : 'en'));
+
+    // Apply saved preference immediately on page load
+    applyLang(lang);
+})();
 
 // ---- HERO KEYWORD CAROUSEL ----
 (function () {
@@ -51,7 +82,6 @@ document.querySelectorAll(
     let current = 0;
     let timer;
 
-    // Build dots
     slides.forEach((_, i) => {
         const dot = document.createElement('button');
         dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
@@ -72,7 +102,7 @@ document.querySelectorAll(
 
     function resetTimer() {
         clearInterval(timer);
-        timer = setInterval(() => goTo(current + 1), 3000);
+        timer = setInterval(() => goTo(current + 1), 2200);
     }
 
     goTo(0);
