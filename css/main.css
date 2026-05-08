@@ -572,7 +572,9 @@ img { display: block; max-width: 100%; }
 }
 
 /* Skills */
-.skills-block { }
+.skills-block {
+    margin-top: 48px;
+}
 
 .skills-list {
     display: flex;
@@ -610,7 +612,9 @@ img { display: block; max-width: 100%; }
     max-width: 520px;
 }
 
-.lang-item {}
+.lang-item {
+    max-width: 100%;
+}
 
 .lang-header {
     display: flex;
