@@ -1,0 +1,12 @@
+title: Carlos Llueca
+baseurl: ""
+url: "https://cllueca.github.io"
+permalink: /blog/:year/:slug/
+
+markdown: kramdown
+highlighter: rouge
+
+collections_dir: blog
+
+exclude:
+  - README.md

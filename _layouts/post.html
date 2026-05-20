@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<main class="blog-main">
+  <article class="post-article">
+    <div class="post-header">
+      <span class="post-category cat-{{ page.category }}">{{ page.category }}</span>
+      <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
+      <h1 class="post-title">{{ page.title }}</h1>
+    </div>
+    <div class="post-content">
+      {{ content }}
+    </div>
+  </article>
+</main>

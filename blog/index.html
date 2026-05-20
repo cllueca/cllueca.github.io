@@ -1,3 +1,6 @@
+---
+layout: default
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -133,6 +136,23 @@
                     </div>
                 </div>
             </section>
+
+            <!-- CATEGORY: PERSONAL -->
+            {% for post in site.posts %}
+            <section class="blog-section">
+                <article class="featured-post" onclick="location.href='{{ post.url }}'">
+                <div class="featured-meta">
+                    <span class="post-category cat-{{ post.category }}">{{ post.category }}</span>
+                    <span class="post-date">{{ post.date | date: "%b %Y" }}</span>
+                </div>
+                <h2 class="featured-title">{{ post.title }}</h2>
+                <p class="featured-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
+                <div class="featured-footer">
+                    <span class="read-time">~ {{ post.read_time }} min read</span>
+                </div>
+                </article>
+            </section>
+            {% endfor %}
 
         </div>
     </main>
