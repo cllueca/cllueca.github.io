@@ -8,13 +8,11 @@ layout: default
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog — Carlos Llueca</title>
 
-    <!-- SEO -->
     <meta name="description" content="Writing by Carlos Llueca — notes on AI engineering, LLMs, machine learning, quantitative finance, and software. Infrequent but intentional.">
     <meta name="author" content="Carlos Llueca">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://cllueca.github.io/blog/">
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cllueca.github.io/blog/">
     <meta property="og:title" content="Blog — Carlos Llueca">
@@ -25,13 +23,11 @@ layout: default
     <meta property="og:locale" content="en_GB">
     <meta property="og:site_name" content="Carlos Llueca">
 
-    <!-- Twitter / X card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Blog — Carlos Llueca">
     <meta name="twitter:description" content="Notes on AI engineering, LLMs, machine learning, and quantitative finance.">
     <meta name="twitter:image" content="https://cllueca.github.io/media/og-cover.png">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../media/favicon.svg">
     <link rel="alternate icon" href="../media/favicon.ico">
     <link rel="apple-touch-icon" href="../media/apple-touch-icon.png">
@@ -75,7 +71,7 @@ layout: default
                 <p class="hero-eyebrow"
                     data-en="Writing & Ideas"
                     data-es="Notas e Ideas">
-                    Writing & Ideas
+                    Writing &amp; Ideas
                 </p>
                 <h1 class="page-title"
                     data-en="The<br><em>Blog.</em>"
@@ -94,65 +90,236 @@ layout: default
         <!-- FILTER BAR -->
         <div class="filter-bar" id="filterBar">
             <div class="filter-inner">
-                <!-- The data-filter map to each id on '<section class="blog-section" id="cat-llm">' precede by the cat- -->
-                <!-- Example of button with data-filter to filter the previous example: <button class="filter-btn" data-filter="ml">Machine Learning</button> -->
                 <button class="filter-btn active" data-filter="all" data-en="All" data-es="Todos">All</button>
+                <button class="filter-btn" data-filter="llm" data-en="LLMs &amp; RAG" data-es="LLMs y RAG">LLMs &amp; RAG</button>
+                <button class="filter-btn" data-filter="ml" data-en="Machine Learning" data-es="Machine Learning">Machine Learning</button>
+                <button class="filter-btn" data-filter="finance" data-en="Quant Finance" data-es="Finanzas Cuantitativas">Quant Finance</button>
+                <button class="filter-btn" data-filter="eng" data-en="Engineering" data-es="Ingeniería">Engineering</button>
+                <button class="filter-btn" data-filter="career" data-en="Career &amp; Growth" data-es="Carrera y crecimiento">Career &amp; Growth</button>
             </div>
         </div>
 
         <div class="blog-body">
 
-            <!-- FEATURED POST -->
+            <!--
+                =============================================
+                FEATURED POST
+                To feature a post, set `featured: true` in
+                its front matter. Shows the most recent one.
+                =============================================
+            -->
+            {% assign featured = site.posts | where: "featured", true | first %}
+            {% if featured %}
             <section class="blog-section">
                 <div class="section-label-inline">
-                    <span class="label-num"
-                        data-en="Featured"
-                        data-es="Destacado">
-                        Featured
-                    </span>
+                    <span class="label-num" data-en="Featured" data-es="Destacado">Featured</span>
                 </div>
-                <div class="featured-post" data-category="llm">
+                <a href="{{ featured.url }}" class="featured-post" data-category="{{ featured.category }}">
                     <div class="featured-meta">
-                        <span class="post-category cat-llm">.</span>
+                        <span class="post-category cat-{{ featured.category }}">{{ featured.category }}</span>
+                        <span class="post-date">{{ featured.date | date: "%b %Y" }}</span>
+                    </div>
+                    <h2 class="featured-title">{{ featured.title }}</h2>
+                    <p class="featured-excerpt">{{ featured.excerpt | strip_html | truncatewords: 40 }}</p>
+                    <div class="featured-footer">
+                        <span class="read-time">~ {{ featured.read_time }} min read</span>
+                        <span class="proj-link">Read →</span>
+                    </div>
+                </a>
+            </section>
+            {% endif %}
+
+            <!--
+                =============================================
+                CATEGORY: LLMs & RAG
+                id must be "cat-" + the category slug used
+                in post front matter (category: llm)
+                =============================================
+            -->
+            {% assign llm_posts = site.posts | where: "category", "llm" %}
+            {% if llm_posts.size > 0 %}
+            <section class="blog-section" id="cat-llm">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-llm-dot"></span>
+                    <span class="cat-heading" data-en="LLMs &amp; RAG" data-es="LLMs y RAG">LLMs &amp; RAG</span>
+                    <span class="cat-count">{{ llm_posts.size }} {% if llm_posts.size == 1 %}post{% else %}posts{% endif %}</span>
+                </div>
+                <div class="post-grid">
+                    {% for post in llm_posts %}
+                    <article class="post-card" data-category="llm" onclick="location.href='{{ post.url }}'">
+                        <div class="post-card-inner">
+                            <div class="pc-header">
+                                <span class="post-category cat-llm">llm</span>
+                                <span class="post-date">{{ post.date | date: "%b %Y" }}</span>
+                            </div>
+                            <h3 class="post-title">{{ post.title }}</h3>
+                            <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+                            <div class="post-footer">
+                                <span class="read-time">{{ post.read_time }} min</span>
+                                <span class="proj-link">Read →</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
+            <!--
+                =============================================
+                CATEGORY: Machine Learning
+                =============================================
+            -->
+            {% assign ml_posts = site.posts | where: "category", "ml" %}
+            {% if ml_posts.size > 0 %}
+            <section class="blog-section" id="cat-ml">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-ml-dot"></span>
+                    <span class="cat-heading" data-en="Machine Learning" data-es="Machine Learning">Machine Learning</span>
+                    <span class="cat-count">{{ ml_posts.size }} {% if ml_posts.size == 1 %}post{% else %}posts{% endif %}</span>
+                </div>
+                <div class="post-grid">
+                    {% for post in ml_posts %}
+                    <article class="post-card" data-category="ml" onclick="location.href='{{ post.url }}'">
+                        <div class="post-card-inner">
+                            <div class="pc-header">
+                                <span class="post-category cat-ml">ml</span>
+                                <span class="post-date">{{ post.date | date: "%b %Y" }}</span>
+                            </div>
+                            <h3 class="post-title">{{ post.title }}</h3>
+                            <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+                            <div class="post-footer">
+                                <span class="read-time">{{ post.read_time }} min</span>
+                                <span class="proj-link">Read →</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
+            <!--
+                =============================================
+                CATEGORY: Finance
+                =============================================
+            -->
+            {% assign finance_posts = site.posts | where: "category", "finance" %}
+            {% if finance_posts.size > 0 %}
+            <section class="blog-section" id="cat-finance">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-finance-dot"></span>
+                    <span class="cat-heading" data-en="Finance" data-es="Finanzas">Finance</span>
+                    <span class="cat-count">{{ finance_posts.size }} {% if finance_posts.size == 1 %}post{% else %}posts{% endif %}</span>
+                </div>
+                <div class="post-grid">
+                    {% for post in finance_posts %}
+                    <article class="post-card" data-category="finance" onclick="location.href='{{ post.url }}'">
+                        <div class="post-card-inner">
+                            <div class="pc-header">
+                                <span class="post-category cat-finance">finance</span>
+                                <span class="post-date">{{ post.date | date: "%b %Y" }}</span>
+                            </div>
+                            <h3 class="post-title">{{ post.title }}</h3>
+                            <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+                            <div class="post-footer">
+                                <span class="read-time">{{ post.read_time }} min</span>
+                                <span class="proj-link">Read →</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
+            <!--
+                =============================================
+                CATEGORY: Engineering
+                =============================================
+            -->
+            {% assign eng_posts = site.posts | where: "category", "eng" %}
+            {% if eng_posts.size > 0 %}
+            <section class="blog-section" id="cat-eng">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-eng-dot"></span>
+                    <span class="cat-heading" data-en="Engineering" data-es="Ingeniería">Engineering</span>
+                    <span class="cat-count">{{ eng_posts.size }} {% if eng_posts.size == 1 %}post{% else %}posts{% endif %}</span>
+                </div>
+                <div class="post-grid">
+                    {% for post in eng_posts %}
+                    <article class="post-card" data-category="eng" onclick="location.href='{{ post.url }}'">
+                        <div class="post-card-inner">
+                            <div class="pc-header">
+                                <span class="post-category cat-eng">eng</span>
+                                <span class="post-date">{{ post.date | date: "%b %Y" }}</span>
+                            </div>
+                            <h3 class="post-title">{{ post.title }}</h3>
+                            <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+                            <div class="post-footer">
+                                <span class="read-time">{{ post.read_time }} min</span>
+                                <span class="proj-link">Read →</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
+            <!--
+                =============================================
+                CATEGORY: Career
+                =============================================
+            -->
+            {% assign career_posts = site.posts | where: "category", "career" %}
+            {% if career_posts.size > 0 %}
+            <section class="blog-section" id="cat-career">
+                <div class="section-label-inline">
+                    <span class="cat-dot cat-career-dot"></span>
+                    <span class="cat-heading" data-en="Career" data-es="Carrera">Career</span>
+                    <span class="cat-count">{{ career_posts.size }} {% if career_posts.size == 1 %}post{% else %}posts{% endif %}</span>
+                </div>
+                <div class="post-grid">
+                    {% for post in career_posts %}
+                    <article class="post-card" data-category="career" onclick="location.href='{{ post.url }}'">
+                        <div class="post-card-inner">
+                            <div class="pc-header">
+                                <span class="post-category cat-career">career</span>
+                                <span class="post-date">{{ post.date | date: "%b %Y" }}</span>
+                            </div>
+                            <h3 class="post-title">{{ post.title }}</h3>
+                            <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+                            <div class="post-footer">
+                                <span class="read-time">{{ post.read_time }} min</span>
+                                <span class="proj-link">Read →</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
+            <!-- Empty state: shown when no posts exist in any category -->
+            {% if site.posts.size == 0 %}
+            <section class="blog-section">
+                <div class="section-label-inline">
+                    <span class="label-num" data-en="Coming soon" data-es="Próximamente">Coming soon</span>
+                </div>
+                <div class="featured-post">
+                    <div class="featured-meta">
                         <span class="post-date">2026</span>
                     </div>
-                    <h2 class="featured-title" data-en="Demo card" data-es="Tarjeta de demo">Demo card</h2>
+                    <h2 class="featured-title" data-en="Gathering my thoughts" data-es="Aclarando mis ideas">Gathering my thoughts</h2>
                     <p class="featured-excerpt"
-                        data-en="Notes coming soon ..."
-                        data-es="Notas próximamente ...">
-                        Notes coming soon ...
+                        data-en="Notes coming soon — on LLMs, ML systems, quantitative finance, and whatever else I find worth writing about."
+                        data-es="Notas próximamente — sobre LLMs, sistemas de ML, finanzas cuantitativas y lo que valga la pena escribir.">
+                        Notes coming soon — on LLMs, ML systems, quantitative finance, and whatever else I find worth writing about.
                     </p>
-                    <div class="featured-footer">
-                        <span class="read-time"
-                            data-en="~ 12 min read"
-                            data-es="~ 12 min de lectura">
-                            ~ 12 min read
-                        </span>
-                        <span class="post-status draft"
-                            data-en="Draft in progress"
-                            data-es="Borrador en progreso">
-                            Draft in progress
-                        </span>
-                    </div>
                 </div>
             </section>
-
-            <!-- CATEGORY: PERSONAL -->
-            {% for post in site.posts %}
-            <section class="blog-section">
-                <article class="featured-post" onclick="location.href='{{ post.url }}'">
-                <div class="featured-meta">
-                    <span class="post-category cat-{{ post.category }}">{{ post.category }}</span>
-                    <span class="post-date">{{ post.date | date: "%b %Y" }}</span>
-                </div>
-                <h2 class="featured-title">{{ post.title }}</h2>
-                <p class="featured-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
-                <div class="featured-footer">
-                    <span class="read-time">~ {{ post.read_time }} min read</span>
-                </div>
-                </article>
-            </section>
-            {% endfor %}
+            {% endif %}
 
         </div>
     </main>
