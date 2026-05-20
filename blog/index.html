@@ -114,7 +114,7 @@ layout: default
                 <div class="section-label-inline">
                     <span class="label-num" data-en="Featured" data-es="Destacado">Featured</span>
                 </div>
-                <a href="{{ featured.url }}" class="featured-post" data-category="{{ featured.category }}">
+                <div class="featured-post" data-category="{{ featured.category }}" onclick="location.href='{{ featured.url }}'" style="cursor:pointer">
                     <div class="featured-meta">
                         <span class="post-category cat-{{ featured.category }}">{{ featured.category }}</span>
                         <span class="post-date">{{ featured.date | date: "%b %Y" }}</span>
@@ -125,7 +125,7 @@ layout: default
                         <span class="read-time">~ {{ featured.read_time }} min read</span>
                         <span class="proj-link">Read →</span>
                     </div>
-                </a>
+                </div>
             </section>
             {% endif %}
 

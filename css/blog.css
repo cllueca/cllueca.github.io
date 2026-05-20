@@ -168,7 +168,11 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.featured-post span {
+    align-self: center;
 }
 
 .featured-title {
