@@ -277,25 +277,6 @@
     letter-spacing: .06em;
 }
 
-.post-status {
-    font-family: var(--font-mono);
-    font-size: .6rem;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 2px;
-}
-
-.post-status.draft {
-    background: rgba(82,77,71,.4);
-    color: var(--text-mute);
-}
-
-.post-status.published {
-    background: rgba(168,196,122,.15);
-    color: var(--cat-finance);
-}
-
 /*
     =============================================
                     POST ARTICLE
